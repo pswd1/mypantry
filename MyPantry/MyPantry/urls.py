@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Pantry import views as Pantry_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Pantry_views.home),
+    path('search', Pantry_views.search)
 ]
