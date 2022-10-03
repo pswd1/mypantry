@@ -1,0 +1,17 @@
+<html>
+	<head>
+		{% include "Pantry/bootstrap.html" %}
+		<title>Search Page MyPantry</title>
+	</head>
+	<body>
+		{% include "Pantry/navigation.html" %}
+		<h1>Search Page MyPantry</h1>
+		<div class="container" align="center">
+			<form method="get">
+				<label for="ingredient">Ingredient: </label>
+				<input id="ingredient" type="text" name="ingredient">
+				<button type="submit" class="btn btn-outline-primary" name="search">Search</button>
+			</form>
+		</div>
+	</body>
+</html>
