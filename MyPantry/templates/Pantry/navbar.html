@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="{% url 'home' %} ">MyPantry</a>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'login' %}">Login</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'register' %}">Register</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'pantry' %}">Pantry</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'browse' %}">Browse</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'view' %}">View</a>
+			</li>
+			<li class="nav-item">				
+				<a class="nav-link" href="{% url 'saved' %}">Saved</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'create' %}">Create</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'update' %}">Update</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'delete' %}">Delete</a>
+			</li>
+	</div>
+</nav>
