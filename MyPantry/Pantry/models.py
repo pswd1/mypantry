@@ -2,6 +2,7 @@ from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class ingredient(models.Model):
     name =  models.CharField(max_length=255)
@@ -21,3 +22,4 @@ class UserModel(models.Model):
 
     def __str__(self):
         return self.user.username
+
