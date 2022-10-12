@@ -1,3 +1,4 @@
+from dataclasses import fields
 from unicodedata import category
 from django.db import models
 
@@ -15,6 +16,3 @@ class recipe(models.Model):
     content = models.TextField()
     ingredients = models.ForeignKey(ingredient,on_delete=models.CASCADE)
     category = models.CharField(max_length=255)
-
-
-
