@@ -1,16 +1,51 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django import forms
-from Pantry.forms import recipeForm, ingredientForm
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from . forms import UserForm, recipeForm, ingredientForm
 from Pantry.models import ingredient, recipe
+from django import forms
 
 def home(request):
     return render(request, 'Pantry/dashboard.html')
 
-def login(request):
+def userlogin(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'Pantry/dashboard.html')
+        else:
+            return render(request, 'Pantry/login.html', {'error_message':'Login credentials are wrong'})
     return render(request, 'Pantry/login.html')
 
+def userlogout(request):
+    logout(request)
+    form = UserForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    return render(request, 'Pantry/login.html', context)
+
 def register(request):
+    form = UserForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'Pantry/login.html')
+    context = {
+        "form": form,
+    }
     return render(request, 'Pantry/register.html')
 
 def pantry(request):

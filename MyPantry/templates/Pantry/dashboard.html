@@ -4,4 +4,9 @@
 
 <h3>Home page.</h3>
 
+{%if user.is_authenticated %}
+hello {{user.username}}
+{% endif %}
+
+
 {% endblock %}
