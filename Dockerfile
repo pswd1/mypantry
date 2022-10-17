@@ -19,7 +19,8 @@ RUN pip install -r MyPantry/requirements.txt
 #
 EXPOSE 8000
 #
-CMD python manage.py runserver
+
+CMD python3 MyPantry/manage.py migrate && python3 MyPantry/manage.py runserver
 
 #refrence:
 #	https://blog.logrocket.com/dockerizing-django-app/
